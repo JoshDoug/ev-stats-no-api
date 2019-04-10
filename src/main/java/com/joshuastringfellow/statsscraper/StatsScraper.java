@@ -1,13 +1,13 @@
-package com.joshuastringfellow.Norway.EV.Stats.Scrapping.API;
+package com.joshuastringfellow.statsscraper;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NorwayEvStatsScrappingApiApplication {
+public class StatsScraper {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NorwayEvStatsScrappingApiApplication.class, args);
+		SpringApplication.run(StatsScraper.class, args);
 	}
 
 }
