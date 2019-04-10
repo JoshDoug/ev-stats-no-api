@@ -9,13 +9,13 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.joshuastringfellow</groupId>
-	<artifactId>Norway EV Stats Scrapping API </artifactId>
+	<artifactId>ev-stats-no-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Norway EV Stats Scrapping API </name>
-	<description>Demo project for Spring Boot</description>
+	<description>Project for scrapping and analysing Norway's EV registration statistics.</description>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>11</java.version>
 	</properties>
 
 	<dependencies>
