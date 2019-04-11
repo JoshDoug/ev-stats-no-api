@@ -11,8 +11,7 @@ public class History {
     // "enkeltgodkjenning":null - type String?
     private String enkeltgodkjenning;
 
-    public History() {
-    }
+    public History() {}
 
     public String getFeilmelding() {
         return feilmelding;
