@@ -1,0 +1,16 @@
+version: '3'
+services:
+  api:
+    build: .
+    ports:
+      - "8080:80"
+  db:
+    image: "mariadb:latest"
+    volumes:
+      - ./db-data:/docker-entrypoint-initdb.d
+    env_file: config/env.list
+  exporter:
+    image: db-exporter:0.0.2
+    ports:
+      - "8081:80"
+    env_file: config/env.list
