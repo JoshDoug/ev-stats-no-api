@@ -1,5 +1,8 @@
 package com.joshuastringfellow.statsscraper.model;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Emissions {
 
     // "miljoklasse":"Ikke oppgitt"

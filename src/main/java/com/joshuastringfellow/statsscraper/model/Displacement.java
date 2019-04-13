@@ -1,21 +1,27 @@
 package com.joshuastringfellow.statsscraper.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Displacement {
 
     //"oppgitt":0
-    private  int oppgitt;
+    @JsonProperty("oppgitt")
+    private  int slagvolumOppgitt;
 
     // "liter":"0"
     private String liter;
 
     public Displacement() {}
 
-    public int getOppgitt() {
-        return oppgitt;
+    public int getSlagvolumOppgitt() {
+        return slagvolumOppgitt;
     }
 
-    public void setOppgitt(int oppgitt) {
-        this.oppgitt = oppgitt;
+    public void setSlagvolumOppgitt(int slagvolumOppgitt) {
+        this.slagvolumOppgitt = slagvolumOppgitt;
     }
 
     public String getLiter() {
@@ -29,7 +35,7 @@ public class Displacement {
     @Override
     public String toString() {
         return "Displacement{"
-                + "oppgitt=" + oppgitt +
+                + "oppgitt=" + slagvolumOppgitt +
                 ", liter='" + liter + '\'' +
                 '}';
     }

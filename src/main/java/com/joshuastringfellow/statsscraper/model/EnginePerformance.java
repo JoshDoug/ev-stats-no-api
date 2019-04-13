@@ -1,9 +1,15 @@
 package com.joshuastringfellow.statsscraper.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class EnginePerformance {
 
     // "oppgitt":"65"
-    private String oppgitt;
+    @JsonProperty("oppgitt")
+    private String motorytelseOppgitt; // motorytelse
 
     // "oppgittBenevning":"KW"
     private String oppgittBenevning;
@@ -13,12 +19,12 @@ public class EnginePerformance {
 
     public EnginePerformance() {}
 
-    public String getOppgitt() {
-        return oppgitt;
+    public String getMotorytelseOppgitt() {
+        return motorytelseOppgitt;
     }
 
-    public void setOppgitt(String oppgitt) {
-        this.oppgitt = oppgitt;
+    public void setMotorytelseOppgitt(String motorytelseOppgitt) {
+        this.motorytelseOppgitt = motorytelseOppgitt;
     }
 
     public String getOppgittBenevning() {
@@ -40,7 +46,7 @@ public class EnginePerformance {
     @Override
     public String toString() {
         return "EnginePerformance{" +
-                "oppgitt='" + oppgitt + '\'' +
+                "oppgitt='" + motorytelseOppgitt + '\'' +
                 ", oppgittBenevning='" + oppgittBenevning + '\'' +
                 ", hestekrefter='" + hestekrefter + '\'' +
                 '}';

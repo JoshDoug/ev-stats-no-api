@@ -1,9 +1,15 @@
 package com.joshuastringfellow.statsscraper.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class History {
 
     // "feilmelding":null - type String?
-    private String feilmelding;
+    @JsonProperty("feilmelding")
+    private String historikkFeilmelding;
 
     // "kilometerstandInfo":null - type String?
     private String kilometerstandInfo;
@@ -13,12 +19,12 @@ public class History {
 
     public History() {}
 
-    public String getFeilmelding() {
-        return feilmelding;
+    public String getHistorikkFeilmelding() {
+        return historikkFeilmelding;
     }
 
-    public void setFeilmelding(String feilmelding) {
-        this.feilmelding = feilmelding;
+    public void setHistorikkFeilmelding(String historikkFeilmelding) {
+        this.historikkFeilmelding = historikkFeilmelding;
     }
 
     public String getKilometerstandInfo() {
@@ -40,7 +46,7 @@ public class History {
     @Override
     public String toString() {
         return "History{" +
-                "feilmelding='" + feilmelding + '\'' +
+                "feilmelding='" + historikkFeilmelding + '\'' +
                 ", kilometerstandInfo='" + kilometerstandInfo + '\'' +
                 ", enkeltgodkjenning='" + enkeltgodkjenning + '\'' +
                 '}';

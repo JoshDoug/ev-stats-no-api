@@ -1,12 +1,20 @@
 package com.joshuastringfellow.statsscraper.model;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.StringJoiner;
 
 /**
  * Class containing all registration details in case I've forgotten anything
  * All in Norwegian as it wasn't obvious how everything should actually be translated
  */
+@Entity
 public class FullRegistration {
+
+    // "regnr":"EV 50610"
+    @Id
+    private String regnr;
 
     // "tidspunkt":"07.04.2019"
     private String tidspunkt;
@@ -27,12 +35,14 @@ public class FullRegistration {
     private String type;
 
     // "brukstype":
+    @Embedded
     private UseType brukstype;
 
     // "farge":"Blå"
     private String farge;
 
     // "kanBeregnes":
+    @Embedded
     private Calculable kanBeregnes;
 
     //  "seter":5
@@ -45,9 +55,11 @@ public class FullRegistration {
     private String drivstofftype;
 
     // "slagvolum":
+    @Embedded
     private Displacement slagvolum;
 
     // "motorytelse":
+    @Embedded
     private EnginePerformance motorytelse;
 
     //"maxhastighet":"250 km/t"
@@ -70,9 +82,6 @@ public class FullRegistration {
 
     // "taklast":0
     private int taklast;
-
-    // "regnr":"EV 50610"
-    private String regnr;
 
     // "understellsnr":"5YJ3E7EB6KF223021"
     private String understellsnr;
@@ -159,15 +168,18 @@ public class FullRegistration {
     private String eukontrollSist;
 
     // "kmstandHistorikk":
+    @Embedded
     private History kmstandHistorikk;
 
     // "utslipp":
+    @Embedded
     private Emissions utslipp;
 
     // "feilmelding":null
     private String feilmelding;
 
-    public FullRegistration() {}
+    public FullRegistration() {
+    }
 
     public String getTidspunkt() {
         return tidspunkt;
