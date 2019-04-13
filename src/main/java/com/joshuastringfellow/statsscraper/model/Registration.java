@@ -1,8 +1,9 @@
-package com.joshuastringfellow.statsscraper;
+package com.joshuastringfellow.statsscraper.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.joshuastringfellow.statsscraper.model.FullRegistration;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.StringJoiner;
 
 /**
@@ -14,8 +15,10 @@ import java.util.StringJoiner;
  *  How about potentially storing non-EVs in the future? How would that impact this class and surrounding logic?
  *  Dealing with the license plate? Split by prefix and number, CPK?
  */
+@Entity
 public class Registration {
 
+    @Id
     @JsonProperty("regnr")
     private String licensePlate;
 
