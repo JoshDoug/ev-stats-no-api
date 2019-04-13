@@ -1,0 +1,25 @@
+version: '3'
+services:
+#  Doesn't include the API which is instead run locally for easier debugging
+#  api:
+#    build: .
+#    ports:
+#      - "8080:80"
+  db:
+    image: "mariadb:latest"
+    volumes:
+      - ./db-data:/docker-entrypoint-initdb.d
+    env_file: config/env.list
+    ports:
+      - "3306:3306"
+  exporter:
+    image: db-exporter:0.0.2
+    ports:
+      - "8081:80"
+    volumes:
+      - ./external:/exports # must be the same as in env.list
+    env_file: config/env.list
+  pma:
+    image: "phpmyadmin/phpmyadmin:latest"
+    ports:
+      - "8082:80"
