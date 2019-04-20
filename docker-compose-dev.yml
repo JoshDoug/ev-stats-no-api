@@ -6,7 +6,7 @@ services:
 #    ports:
 #      - "8080:80"
   db:
-    image: "mariadb:latest"
+    image: mariadb:latest
     volumes:
       - ./db-data:/docker-entrypoint-initdb.d
     env_file: config/env.list
@@ -20,6 +20,6 @@ services:
       - ./external:/exports # must be the same as in env.list
     env_file: config/env.list
   pma:
-    image: "phpmyadmin/phpmyadmin:latest"
+    image: phpmyadmin/phpmyadmin:latest
     ports:
       - "8082:80"
