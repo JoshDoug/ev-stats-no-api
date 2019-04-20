@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Date;
 import java.util.StringJoiner;
 
 /**
@@ -41,10 +42,10 @@ public class Registration {
     private int totalWeight;
 
     @JsonProperty("registrertEierDato")
-    private String registrationDate;
+    private Date registrationDate;
 
     @JsonProperty("avregistrertDato")
-    private String deRegistrationDate;
+    private Date deRegistrationDate;
 
     @JsonProperty("bruktimportert")
     private String usedImport;
@@ -129,19 +130,19 @@ public class Registration {
         this.totalWeight = totalWeight;
     }
 
-    public String getRegistrationDate() {
+    public Date getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(String registrationDate) {
+    public void setRegistrationDate(Date registrationDate) {
         this.registrationDate = registrationDate;
     }
 
-    public String getDeRegistrationDate() {
+    public Date getDeRegistrationDate() {
         return deRegistrationDate;
     }
 
-    public void setDeRegistrationDate(String deRegistrationDate) {
+    public void setDeRegistrationDate(Date deRegistrationDate) {
         this.deRegistrationDate = deRegistrationDate;
     }
 
