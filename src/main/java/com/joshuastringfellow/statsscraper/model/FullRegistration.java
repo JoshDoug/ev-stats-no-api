@@ -1,8 +1,11 @@
 package com.joshuastringfellow.statsscraper.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Date;
 import java.util.StringJoiner;
 
 /**
@@ -17,10 +20,12 @@ public class FullRegistration {
     private String regnr;
 
     // "tidspunkt":"07.04.2019"
-    private String tidspunkt;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
+    private Date tidspunkt;
 
     // "nesteOppdatering":"08.04.2019"
-    private String nesteOppdatering;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
+    private Date nesteOppdatering;
 
     // "kjoretoy":true
     private boolean kjoretoy;
@@ -93,13 +98,15 @@ public class FullRegistration {
     private String forstegangsreg;
 
     // "registrertEierDato":"04.03.2019"
-    private String registrertEierDato;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
+    private Date registrertEierDato;
 
     // "registrertDistrikt":"Oslo"
     private String registrertDistrikt;
 
     // "avregistrertDato":""
-    private String avregistrertDato;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
+    private Date avregistrertDato;
 
     // "egenvekt":1856
     private int egenvekt;
@@ -150,7 +157,8 @@ public class FullRegistration {
     private String innpressBak;
 
     // "solgtDato":""
-    private String solgtDato;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
+    private Date solgtDato;
 
     // "bruktimportert":"Nei"
     private String bruktimportert;
@@ -162,7 +170,8 @@ public class FullRegistration {
     private String antallAksler;
 
     // "eukontrollfrist":"04.03.2023"
-    private String eukontrollfrist;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
+    private Date eukontrollfrist;
 
     // "eukontrollSist":""
     private String eukontrollSist;
@@ -181,19 +190,19 @@ public class FullRegistration {
     public FullRegistration() {
     }
 
-    public String getTidspunkt() {
+    public Date getTidspunkt() {
         return tidspunkt;
     }
 
-    public void setTidspunkt(String tidspunkt) {
+    public void setTidspunkt(Date tidspunkt) {
         this.tidspunkt = tidspunkt;
     }
 
-    public String getNesteOppdatering() {
+    public Date getNesteOppdatering() {
         return nesteOppdatering;
     }
 
-    public void setNesteOppdatering(String nesteOppdatering) {
+    public void setNesteOppdatering(Date nesteOppdatering) {
         this.nesteOppdatering = nesteOppdatering;
     }
 
@@ -381,11 +390,11 @@ public class FullRegistration {
         this.forstegangsreg = forstegangsreg;
     }
 
-    public String getRegistrertEierDato() {
+    public Date getRegistrertEierDato() {
         return registrertEierDato;
     }
 
-    public void setRegistrertEierDato(String registrertEierDato) {
+    public void setRegistrertEierDato(Date registrertEierDato) {
         this.registrertEierDato = registrertEierDato;
     }
 
@@ -397,11 +406,11 @@ public class FullRegistration {
         this.registrertDistrikt = registrertDistrikt;
     }
 
-    public String getAvregistrertDato() {
+    public Date getAvregistrertDato() {
         return avregistrertDato;
     }
 
-    public void setAvregistrertDato(String avregistrertDato) {
+    public void setAvregistrertDato(Date avregistrertDato) {
         this.avregistrertDato = avregistrertDato;
     }
 
@@ -533,11 +542,11 @@ public class FullRegistration {
         this.innpressBak = innpressBak;
     }
 
-    public String getSolgtDato() {
+    public Date getSolgtDato() {
         return solgtDato;
     }
 
-    public void setSolgtDato(String solgtDato) {
+    public void setSolgtDato(Date solgtDato) {
         this.solgtDato = solgtDato;
     }
 
@@ -565,11 +574,11 @@ public class FullRegistration {
         this.antallAksler = antallAksler;
     }
 
-    public String getEukontrollfrist() {
+    public Date getEukontrollfrist() {
         return eukontrollfrist;
     }
 
-    public void setEukontrollfrist(String eukontrollfrist) {
+    public void setEukontrollfrist(Date eukontrollfrist) {
         this.eukontrollfrist = eukontrollfrist;
     }
 
