@@ -8,7 +8,7 @@ public class Calculable {
     // "klasseB":true
     private boolean klasseB;
 
-    private Calculable() {}
+    public Calculable() {}
 
     public boolean isKlasseB() {
         return klasseB;
