@@ -2,8 +2,6 @@ package com.joshuastringfellow.statsscraper;
 
 import com.joshuastringfellow.statsscraper.model.FullRegistration;
 import com.joshuastringfellow.statsscraper.model.Registration;
-import com.joshuastringfellow.statsscraper.repos.FullRegistrationRepository;
-import com.joshuastringfellow.statsscraper.repos.RegistrationRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +14,7 @@ public class StatsController {
     private static final Logger log = LoggerFactory.getLogger(StatsController.class);
 
     @Autowired
-    FullRegistrationRepository fullRegistrationRepository;
-
-    @Autowired
-    RegistrationRepository registrationRepository;
+    StatisticsService statisticsService;
 
     @GetMapping("hello")
     public String getHelloWorld() {
@@ -27,7 +22,8 @@ public class StatsController {
     }
 
     @GetMapping("registration/license_number/{license_number}")
-    public @ResponseBody FullRegistration getRegistrationDetailsLicence(@PathVariable("license_number") String licenseNumber) {
+    public @ResponseBody
+    FullRegistration getRegistrationDetails(@PathVariable("license_number") String licenseNumber) {
         final String uri = "https://www.vegvesen.no/system/mobilapi?registreringsnummer=EV50610";
 
         // RestTemplate uses a default Accept: application/json header, so the API returns JSON instead of the default XML
@@ -44,22 +40,23 @@ public class StatsController {
     }
 
     @PostMapping("registration/license_number/{license_number}")
-    public @ResponseBody FullRegistration checkAndInsertRegistration(@PathVariable("license_number") String licenseNumber) {
+    public @ResponseBody
+    FullRegistration checkAndInsertRegistration(@PathVariable("license_number") String licenseNumber) {
         final String uri = "https://www.vegvesen.no/system/mobilapi?registreringsnummer=" + licenseNumber;
 
         // RestTemplate uses a default Accept: application/json header, so the API returns JSON instead of the default XML
         RestTemplate restTemplate = new RestTemplate();
         FullRegistration fullRegistration = restTemplate.getForObject(uri, FullRegistration.class);
 
-        if(fullRegistration != null) {
+        if (fullRegistration != null) {
             log.info(fullRegistration.toString());
 
             Registration registration = new Registration(fullRegistration);
             log.info(registration.toString());
 
             // Now to pop them into the DB, should be no big deal right?
-            fullRegistrationRepository.save(fullRegistration);
-            registrationRepository.save(registration);
+            statisticsService.saveFullRegistration(fullRegistration);
+            statisticsService.saveRegistration(registration);
 
             return fullRegistration;
         } else {
